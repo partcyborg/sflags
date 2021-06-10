@@ -1,4 +1,4 @@
-module github.com/sflags
+module github.com/partcyborg/sflags
 
 require (
 	github.com/alecthomas/kingpin v2.2.6+incompatible
