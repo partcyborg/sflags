@@ -402,7 +402,7 @@ func TestParseStruct(t *testing.T) {
 			} else {
 				require.Equal(t, test.expErr, err)
 			}
-			assert.Equal(t, test.expFlagSet, flagSet)
+			require.Equal(t, test.expFlagSet, flagSet)
 		})
 	}
 }

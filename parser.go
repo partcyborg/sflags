@@ -7,12 +7,13 @@ import (
 )
 
 const (
-	defaultDescTag     = "desc"
-	defaultFlagTag     = "flag"
-	defaultEnvTag      = "env"
-	defaultFlagDivider = "-"
-	defaultEnvDivider  = "_"
-	defaultFlatten     = true
+	defaultDescTag         = "desc"
+	defaultFlagTag         = "flag"
+	defaultEnvTag          = "env"
+	defaultFlagDivider     = "-"
+	defaultEnvDivider      = "_"
+	defaultEnvStackDivider = "."
+	defaultFlatten         = true
 )
 
 // ValidateFunc describes a validation func,
@@ -22,14 +23,17 @@ const (
 type ValidateFunc func(val string, field reflect.StructField, cfg interface{}) error
 
 type opts struct {
-	descTag     string
-	flagTag     string
-	prefix      string
-	envPrefix   string
-	flagDivider string
-	envDivider  string
-	flatten     bool
-	validator   ValidateFunc
+	descTag         string
+	flagTag         string
+	prefix          string
+	envPrefix       string
+	envTag          string
+	flagDivider     string
+	envDivider      string
+	envStackDivider string
+	envStackPrefix  string
+	flatten         bool
+	validator       ValidateFunc
 }
 
 func (o opts) apply(optFuncs ...OptFunc) opts {
@@ -53,6 +57,11 @@ func Prefix(val string) OptFunc { return func(opt *opts) { opt.prefix = val } }
 
 // EnvPrefix sets prefix that will be applied for all environment variables (if they are not marked as ~).
 func EnvPrefix(val string) OptFunc { return func(opt *opts) { opt.envPrefix = val } }
+
+func EnvStackPrefix(val string) OptFunc { return func(opt *opts) { opt.envStackPrefix = val } }
+
+// EnvTag sets custom env tag. It is "env" by default
+func EnvTag(val string) OptFunc { return func(opt *opts) { opt.envTag = val } }
 
 // FlagDivider sets custom divider for flags. It is dash by default. e.g. "flag-name".
 func FlagDivider(val string) OptFunc { return func(opt *opts) { opt.flagDivider = val } }
@@ -82,11 +91,13 @@ func hasOption(options []string, option string) bool {
 
 func defOpts() opts {
 	return opts{
-		descTag:     defaultDescTag,
-		flagTag:     defaultFlagTag,
-		flagDivider: defaultFlagDivider,
-		envDivider:  defaultEnvDivider,
-		flatten:     defaultFlatten,
+		descTag:         defaultDescTag,
+		envTag:          defaultEnvTag,
+		flagTag:         defaultFlagTag,
+		flagDivider:     defaultFlagDivider,
+		envDivider:      defaultEnvDivider,
+		envStackDivider: defaultEnvStackDivider,
+		flatten:         defaultFlatten,
 	}
 }
 
@@ -117,10 +128,22 @@ func parseFlagTag(field reflect.StructField, opt opts) *Flag {
 
 	}
 
+	//flag.EnvName = parseEnv(flag.Name, field, opt)
+	flag.ViperName = parseViper(flag.Name, field, opt)
 	if opt.prefix != "" && !ignoreFlagPrefix {
 		flag.Name = opt.prefix + flag.Name
 	}
 	return &flag
+}
+
+func makeEnv(vals ...string) string {
+	var fields []string
+	for _, val := range vals {
+		if val != "" {
+			fields = append(fields, val)
+		}
+	}
+	return strings.ToLower(strings.Join(fields, "."))
 }
 
 func parseEnv(flagName string, field reflect.StructField, opt opts) string {
@@ -156,6 +179,39 @@ func parseEnv(flagName string, field reflect.StructField, opt opts) string {
 	return envVar
 }
 
+func parseViper(flagName string, field reflect.StructField, opt opts) string {
+	//ignoreEnvPrefix := false
+	envVar := flagToEnv(flagName, opt.flagDivider, opt.envDivider)
+	if envTags := strings.Split(field.Tag.Get(opt.envTag), ","); len(envTags) > 0 {
+		switch envName := envTags[0]; envName {
+		case "-":
+			// if tag is `env:"-"` then won't fill flag from environment
+			envVar = ""
+		case "":
+			// if tag is `env:""` then env var will be taken from flag name
+		default:
+			// if tag is `env:"NAME"` then env var is envPrefix_flagPrefix_NAME
+			// if tag is `env:"~NAME"` then env var is NAME
+			if strings.HasPrefix(envName, "~") {
+				envVar = envName[1:]
+				//ignoreEnvPrefix = true
+			} else {
+				envVar = envName
+				if opt.prefix != "" {
+					envVar = makeEnv(opt.envStackPrefix, envVar)
+				}
+			}
+		}
+	}
+	/*
+		if envVar != "" && opt.envPrefix != "" && !ignoreEnvPrefix {
+			log.Printf("envPrefix is %s", opt.envPrefix)
+			envVar = makeEnv(opt.envPrefix, envVar)
+		}
+	*/
+	return envVar
+}
+
 // ParseStruct parses structure and returns list of flags based on this structure.
 // This list of flags can be used by generators for flag, kingpin, cobra, pflag, urfave/cli.
 func ParseStruct(cfg interface{}, optFuncs ...OptFunc) ([]*Flag, error) {
@@ -178,7 +234,8 @@ func ParseStruct(cfg interface{}, optFuncs ...OptFunc) ([]*Flag, error) {
 	}
 }
 
-func parseVal(value reflect.Value, optFuncs ...OptFunc) ([]*Flag, Value) {
+func parseVal(name string, value reflect.Value, optFuncs ...OptFunc) ([]*Flag, Value) {
+	opt := defOpts().apply(optFuncs...)
 	// value is addressable, let's check if we can parse it
 	if value.CanAddr() && value.Addr().CanInterface() {
 		valueInterface := value.Addr().Interface()
@@ -201,8 +258,9 @@ func parseVal(value reflect.Value, optFuncs ...OptFunc) ([]*Flag, Value) {
 		if val != nil {
 			return nil, val
 		}
-		return parseVal(value.Elem(), optFuncs...)
+		return parseVal(name, value.Elem(), optFuncs...)
 	case reflect.Struct:
+		optFuncs = append(optFuncs, EnvStackPrefix(makeEnv(opt.envStackPrefix, name)))
 		flags := parseStruct(value, optFuncs...)
 		return flags, nil
 	case reflect.Map:
@@ -254,9 +312,11 @@ fields:
 			prefix = opt.prefix
 		}
 
-		nestedFlags, val := parseVal(fieldValue,
+		//log.Printf("field: %s, pfn: %s", field.Name, flag.Name)
+		nestedFlags, val := parseVal(field.Name, fieldValue,
 			copyOpts(opt),
 			Prefix(prefix),
+			//EnvStackPrefix(makeEnv(opt.envStackPrefix, field.Name)),
 		)
 
 		// field contains a simple value.
