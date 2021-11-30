@@ -659,7 +659,7 @@ func (v *stringStringMapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	val := s
 
@@ -718,7 +718,7 @@ func (v *intStringMapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	val := s
 
@@ -777,7 +777,7 @@ func (v *int8StringMapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	val := s
 
@@ -836,7 +836,7 @@ func (v *int16StringMapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	val := s
 
@@ -895,7 +895,7 @@ func (v *int32StringMapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	val := s
 
@@ -954,7 +954,7 @@ func (v *int64StringMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	val := s
 
@@ -1013,7 +1013,7 @@ func (v *uintStringMapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	val := s
 
@@ -1072,7 +1072,7 @@ func (v *uint8StringMapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	val := s
 
@@ -1131,7 +1131,7 @@ func (v *uint16StringMapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	val := s
 
@@ -1190,7 +1190,7 @@ func (v *uint32StringMapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	val := s
 
@@ -1249,7 +1249,7 @@ func (v *uint64StringMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	val := s
 
@@ -1402,7 +1402,7 @@ func (v *stringBoolMapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseBool(s)
 	if err != nil {
@@ -1466,7 +1466,7 @@ func (v *intBoolMapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseBool(s)
 	if err != nil {
@@ -1530,7 +1530,7 @@ func (v *int8BoolMapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseBool(s)
 	if err != nil {
@@ -1594,7 +1594,7 @@ func (v *int16BoolMapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseBool(s)
 	if err != nil {
@@ -1658,7 +1658,7 @@ func (v *int32BoolMapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseBool(s)
 	if err != nil {
@@ -1722,7 +1722,7 @@ func (v *int64BoolMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseBool(s)
 	if err != nil {
@@ -1786,7 +1786,7 @@ func (v *uintBoolMapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseBool(s)
 	if err != nil {
@@ -1850,7 +1850,7 @@ func (v *uint8BoolMapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseBool(s)
 	if err != nil {
@@ -1914,7 +1914,7 @@ func (v *uint16BoolMapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseBool(s)
 	if err != nil {
@@ -1978,7 +1978,7 @@ func (v *uint32BoolMapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseBool(s)
 	if err != nil {
@@ -2042,7 +2042,7 @@ func (v *uint64BoolMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseBool(s)
 	if err != nil {
@@ -2200,7 +2200,7 @@ func (v *stringUintMapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -2264,7 +2264,7 @@ func (v *intUintMapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -2328,7 +2328,7 @@ func (v *int8UintMapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -2392,7 +2392,7 @@ func (v *int16UintMapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -2456,7 +2456,7 @@ func (v *int32UintMapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -2520,7 +2520,7 @@ func (v *int64UintMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -2584,7 +2584,7 @@ func (v *uintUintMapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -2648,7 +2648,7 @@ func (v *uint8UintMapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -2712,7 +2712,7 @@ func (v *uint16UintMapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -2776,7 +2776,7 @@ func (v *uint32UintMapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -2840,7 +2840,7 @@ func (v *uint64UintMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -2998,7 +2998,7 @@ func (v *stringUint8MapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 8)
 	if err != nil {
@@ -3062,7 +3062,7 @@ func (v *intUint8MapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 8)
 	if err != nil {
@@ -3126,7 +3126,7 @@ func (v *int8Uint8MapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 8)
 	if err != nil {
@@ -3190,7 +3190,7 @@ func (v *int16Uint8MapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 8)
 	if err != nil {
@@ -3254,7 +3254,7 @@ func (v *int32Uint8MapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 8)
 	if err != nil {
@@ -3318,7 +3318,7 @@ func (v *int64Uint8MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 8)
 	if err != nil {
@@ -3382,7 +3382,7 @@ func (v *uintUint8MapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 8)
 	if err != nil {
@@ -3446,7 +3446,7 @@ func (v *uint8Uint8MapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 8)
 	if err != nil {
@@ -3510,7 +3510,7 @@ func (v *uint16Uint8MapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 8)
 	if err != nil {
@@ -3574,7 +3574,7 @@ func (v *uint32Uint8MapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 8)
 	if err != nil {
@@ -3638,7 +3638,7 @@ func (v *uint64Uint8MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 8)
 	if err != nil {
@@ -3796,7 +3796,7 @@ func (v *stringUint16MapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 16)
 	if err != nil {
@@ -3860,7 +3860,7 @@ func (v *intUint16MapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 16)
 	if err != nil {
@@ -3924,7 +3924,7 @@ func (v *int8Uint16MapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 16)
 	if err != nil {
@@ -3988,7 +3988,7 @@ func (v *int16Uint16MapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 16)
 	if err != nil {
@@ -4052,7 +4052,7 @@ func (v *int32Uint16MapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 16)
 	if err != nil {
@@ -4116,7 +4116,7 @@ func (v *int64Uint16MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 16)
 	if err != nil {
@@ -4180,7 +4180,7 @@ func (v *uintUint16MapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 16)
 	if err != nil {
@@ -4244,7 +4244,7 @@ func (v *uint8Uint16MapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 16)
 	if err != nil {
@@ -4308,7 +4308,7 @@ func (v *uint16Uint16MapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 16)
 	if err != nil {
@@ -4372,7 +4372,7 @@ func (v *uint32Uint16MapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 16)
 	if err != nil {
@@ -4436,7 +4436,7 @@ func (v *uint64Uint16MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 16)
 	if err != nil {
@@ -4594,7 +4594,7 @@ func (v *stringUint32MapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 32)
 	if err != nil {
@@ -4658,7 +4658,7 @@ func (v *intUint32MapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 32)
 	if err != nil {
@@ -4722,7 +4722,7 @@ func (v *int8Uint32MapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 32)
 	if err != nil {
@@ -4786,7 +4786,7 @@ func (v *int16Uint32MapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 32)
 	if err != nil {
@@ -4850,7 +4850,7 @@ func (v *int32Uint32MapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 32)
 	if err != nil {
@@ -4914,7 +4914,7 @@ func (v *int64Uint32MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 32)
 	if err != nil {
@@ -4978,7 +4978,7 @@ func (v *uintUint32MapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 32)
 	if err != nil {
@@ -5042,7 +5042,7 @@ func (v *uint8Uint32MapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 32)
 	if err != nil {
@@ -5106,7 +5106,7 @@ func (v *uint16Uint32MapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 32)
 	if err != nil {
@@ -5170,7 +5170,7 @@ func (v *uint32Uint32MapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 32)
 	if err != nil {
@@ -5234,7 +5234,7 @@ func (v *uint64Uint32MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 32)
 	if err != nil {
@@ -5392,7 +5392,7 @@ func (v *stringUint64MapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -5456,7 +5456,7 @@ func (v *intUint64MapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -5520,7 +5520,7 @@ func (v *int8Uint64MapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -5584,7 +5584,7 @@ func (v *int16Uint64MapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -5648,7 +5648,7 @@ func (v *int32Uint64MapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -5712,7 +5712,7 @@ func (v *int64Uint64MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -5776,7 +5776,7 @@ func (v *uintUint64MapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -5840,7 +5840,7 @@ func (v *uint8Uint64MapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -5904,7 +5904,7 @@ func (v *uint16Uint64MapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -5968,7 +5968,7 @@ func (v *uint32Uint64MapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -6032,7 +6032,7 @@ func (v *uint64Uint64MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseUint(s, 0, 64)
 	if err != nil {
@@ -6190,7 +6190,7 @@ func (v *stringIntMapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -6254,7 +6254,7 @@ func (v *intIntMapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -6318,7 +6318,7 @@ func (v *int8IntMapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -6382,7 +6382,7 @@ func (v *int16IntMapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -6446,7 +6446,7 @@ func (v *int32IntMapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -6510,7 +6510,7 @@ func (v *int64IntMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -6574,7 +6574,7 @@ func (v *uintIntMapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -6638,7 +6638,7 @@ func (v *uint8IntMapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -6702,7 +6702,7 @@ func (v *uint16IntMapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -6766,7 +6766,7 @@ func (v *uint32IntMapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -6830,7 +6830,7 @@ func (v *uint64IntMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -6988,7 +6988,7 @@ func (v *stringInt8MapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 8)
 	if err != nil {
@@ -7052,7 +7052,7 @@ func (v *intInt8MapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 8)
 	if err != nil {
@@ -7116,7 +7116,7 @@ func (v *int8Int8MapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 8)
 	if err != nil {
@@ -7180,7 +7180,7 @@ func (v *int16Int8MapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 8)
 	if err != nil {
@@ -7244,7 +7244,7 @@ func (v *int32Int8MapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 8)
 	if err != nil {
@@ -7308,7 +7308,7 @@ func (v *int64Int8MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 8)
 	if err != nil {
@@ -7372,7 +7372,7 @@ func (v *uintInt8MapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 8)
 	if err != nil {
@@ -7436,7 +7436,7 @@ func (v *uint8Int8MapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 8)
 	if err != nil {
@@ -7500,7 +7500,7 @@ func (v *uint16Int8MapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 8)
 	if err != nil {
@@ -7564,7 +7564,7 @@ func (v *uint32Int8MapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 8)
 	if err != nil {
@@ -7628,7 +7628,7 @@ func (v *uint64Int8MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 8)
 	if err != nil {
@@ -7786,7 +7786,7 @@ func (v *stringInt16MapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 16)
 	if err != nil {
@@ -7850,7 +7850,7 @@ func (v *intInt16MapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 16)
 	if err != nil {
@@ -7914,7 +7914,7 @@ func (v *int8Int16MapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 16)
 	if err != nil {
@@ -7978,7 +7978,7 @@ func (v *int16Int16MapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 16)
 	if err != nil {
@@ -8042,7 +8042,7 @@ func (v *int32Int16MapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 16)
 	if err != nil {
@@ -8106,7 +8106,7 @@ func (v *int64Int16MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 16)
 	if err != nil {
@@ -8170,7 +8170,7 @@ func (v *uintInt16MapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 16)
 	if err != nil {
@@ -8234,7 +8234,7 @@ func (v *uint8Int16MapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 16)
 	if err != nil {
@@ -8298,7 +8298,7 @@ func (v *uint16Int16MapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 16)
 	if err != nil {
@@ -8362,7 +8362,7 @@ func (v *uint32Int16MapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 16)
 	if err != nil {
@@ -8426,7 +8426,7 @@ func (v *uint64Int16MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 16)
 	if err != nil {
@@ -8584,7 +8584,7 @@ func (v *stringInt32MapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 32)
 	if err != nil {
@@ -8648,7 +8648,7 @@ func (v *intInt32MapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 32)
 	if err != nil {
@@ -8712,7 +8712,7 @@ func (v *int8Int32MapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 32)
 	if err != nil {
@@ -8776,7 +8776,7 @@ func (v *int16Int32MapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 32)
 	if err != nil {
@@ -8840,7 +8840,7 @@ func (v *int32Int32MapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 32)
 	if err != nil {
@@ -8904,7 +8904,7 @@ func (v *int64Int32MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 32)
 	if err != nil {
@@ -8968,7 +8968,7 @@ func (v *uintInt32MapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 32)
 	if err != nil {
@@ -9032,7 +9032,7 @@ func (v *uint8Int32MapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 32)
 	if err != nil {
@@ -9096,7 +9096,7 @@ func (v *uint16Int32MapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 32)
 	if err != nil {
@@ -9160,7 +9160,7 @@ func (v *uint32Int32MapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 32)
 	if err != nil {
@@ -9224,7 +9224,7 @@ func (v *uint64Int32MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 32)
 	if err != nil {
@@ -9382,7 +9382,7 @@ func (v *stringInt64MapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -9446,7 +9446,7 @@ func (v *intInt64MapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -9510,7 +9510,7 @@ func (v *int8Int64MapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -9574,7 +9574,7 @@ func (v *int16Int64MapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -9638,7 +9638,7 @@ func (v *int32Int64MapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -9702,7 +9702,7 @@ func (v *int64Int64MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -9766,7 +9766,7 @@ func (v *uintInt64MapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -9830,7 +9830,7 @@ func (v *uint8Int64MapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -9894,7 +9894,7 @@ func (v *uint16Int64MapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -9958,7 +9958,7 @@ func (v *uint32Int64MapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -10022,7 +10022,7 @@ func (v *uint64Int64MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseInt(s, 0, 64)
 	if err != nil {
@@ -10180,7 +10180,7 @@ func (v *stringFloat64MapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 64)
 	if err != nil {
@@ -10244,7 +10244,7 @@ func (v *intFloat64MapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 64)
 	if err != nil {
@@ -10308,7 +10308,7 @@ func (v *int8Float64MapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 64)
 	if err != nil {
@@ -10372,7 +10372,7 @@ func (v *int16Float64MapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 64)
 	if err != nil {
@@ -10436,7 +10436,7 @@ func (v *int32Float64MapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 64)
 	if err != nil {
@@ -10500,7 +10500,7 @@ func (v *int64Float64MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 64)
 	if err != nil {
@@ -10564,7 +10564,7 @@ func (v *uintFloat64MapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 64)
 	if err != nil {
@@ -10628,7 +10628,7 @@ func (v *uint8Float64MapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 64)
 	if err != nil {
@@ -10692,7 +10692,7 @@ func (v *uint16Float64MapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 64)
 	if err != nil {
@@ -10756,7 +10756,7 @@ func (v *uint32Float64MapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 64)
 	if err != nil {
@@ -10820,7 +10820,7 @@ func (v *uint64Float64MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 64)
 	if err != nil {
@@ -10978,7 +10978,7 @@ func (v *stringFloat32MapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 32)
 	if err != nil {
@@ -11042,7 +11042,7 @@ func (v *intFloat32MapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 32)
 	if err != nil {
@@ -11106,7 +11106,7 @@ func (v *int8Float32MapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 32)
 	if err != nil {
@@ -11170,7 +11170,7 @@ func (v *int16Float32MapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 32)
 	if err != nil {
@@ -11234,7 +11234,7 @@ func (v *int32Float32MapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 32)
 	if err != nil {
@@ -11298,7 +11298,7 @@ func (v *int64Float32MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 32)
 	if err != nil {
@@ -11362,7 +11362,7 @@ func (v *uintFloat32MapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 32)
 	if err != nil {
@@ -11426,7 +11426,7 @@ func (v *uint8Float32MapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 32)
 	if err != nil {
@@ -11490,7 +11490,7 @@ func (v *uint16Float32MapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 32)
 	if err != nil {
@@ -11554,7 +11554,7 @@ func (v *uint32Float32MapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 32)
 	if err != nil {
@@ -11618,7 +11618,7 @@ func (v *uint64Float32MapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := strconv.ParseFloat(s, 32)
 	if err != nil {
@@ -11776,7 +11776,7 @@ func (v *stringDurationMapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := time.ParseDuration(s)
 	if err != nil {
@@ -11840,7 +11840,7 @@ func (v *intDurationMapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := time.ParseDuration(s)
 	if err != nil {
@@ -11904,7 +11904,7 @@ func (v *int8DurationMapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := time.ParseDuration(s)
 	if err != nil {
@@ -11968,7 +11968,7 @@ func (v *int16DurationMapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := time.ParseDuration(s)
 	if err != nil {
@@ -12032,7 +12032,7 @@ func (v *int32DurationMapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := time.ParseDuration(s)
 	if err != nil {
@@ -12096,7 +12096,7 @@ func (v *int64DurationMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := time.ParseDuration(s)
 	if err != nil {
@@ -12160,7 +12160,7 @@ func (v *uintDurationMapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := time.ParseDuration(s)
 	if err != nil {
@@ -12224,7 +12224,7 @@ func (v *uint8DurationMapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := time.ParseDuration(s)
 	if err != nil {
@@ -12288,7 +12288,7 @@ func (v *uint16DurationMapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := time.ParseDuration(s)
 	if err != nil {
@@ -12352,7 +12352,7 @@ func (v *uint32DurationMapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := time.ParseDuration(s)
 	if err != nil {
@@ -12416,7 +12416,7 @@ func (v *uint64DurationMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := time.ParseDuration(s)
 	if err != nil {
@@ -12574,7 +12574,7 @@ func (v *stringIPMapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIP(s)
 	if err != nil {
@@ -12638,7 +12638,7 @@ func (v *intIPMapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIP(s)
 	if err != nil {
@@ -12702,7 +12702,7 @@ func (v *int8IPMapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIP(s)
 	if err != nil {
@@ -12766,7 +12766,7 @@ func (v *int16IPMapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIP(s)
 	if err != nil {
@@ -12830,7 +12830,7 @@ func (v *int32IPMapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIP(s)
 	if err != nil {
@@ -12894,7 +12894,7 @@ func (v *int64IPMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIP(s)
 	if err != nil {
@@ -12958,7 +12958,7 @@ func (v *uintIPMapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIP(s)
 	if err != nil {
@@ -13022,7 +13022,7 @@ func (v *uint8IPMapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIP(s)
 	if err != nil {
@@ -13086,7 +13086,7 @@ func (v *uint16IPMapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIP(s)
 	if err != nil {
@@ -13150,7 +13150,7 @@ func (v *uint32IPMapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIP(s)
 	if err != nil {
@@ -13214,7 +13214,7 @@ func (v *uint64IPMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIP(s)
 	if err != nil {
@@ -13372,7 +13372,7 @@ func (v *stringHexBytesMapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := hex.DecodeString(s)
 	if err != nil {
@@ -13436,7 +13436,7 @@ func (v *intHexBytesMapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := hex.DecodeString(s)
 	if err != nil {
@@ -13500,7 +13500,7 @@ func (v *int8HexBytesMapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := hex.DecodeString(s)
 	if err != nil {
@@ -13564,7 +13564,7 @@ func (v *int16HexBytesMapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := hex.DecodeString(s)
 	if err != nil {
@@ -13628,7 +13628,7 @@ func (v *int32HexBytesMapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := hex.DecodeString(s)
 	if err != nil {
@@ -13692,7 +13692,7 @@ func (v *int64HexBytesMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := hex.DecodeString(s)
 	if err != nil {
@@ -13756,7 +13756,7 @@ func (v *uintHexBytesMapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := hex.DecodeString(s)
 	if err != nil {
@@ -13820,7 +13820,7 @@ func (v *uint8HexBytesMapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := hex.DecodeString(s)
 	if err != nil {
@@ -13884,7 +13884,7 @@ func (v *uint16HexBytesMapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := hex.DecodeString(s)
 	if err != nil {
@@ -13948,7 +13948,7 @@ func (v *uint32HexBytesMapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := hex.DecodeString(s)
 	if err != nil {
@@ -14012,7 +14012,7 @@ func (v *uint64HexBytesMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := hex.DecodeString(s)
 	if err != nil {
@@ -14170,7 +14170,7 @@ func (v *stringRegexpMapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := regexp.Compile(s)
 	if err != nil {
@@ -14234,7 +14234,7 @@ func (v *intRegexpMapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := regexp.Compile(s)
 	if err != nil {
@@ -14298,7 +14298,7 @@ func (v *int8RegexpMapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := regexp.Compile(s)
 	if err != nil {
@@ -14362,7 +14362,7 @@ func (v *int16RegexpMapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := regexp.Compile(s)
 	if err != nil {
@@ -14426,7 +14426,7 @@ func (v *int32RegexpMapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := regexp.Compile(s)
 	if err != nil {
@@ -14490,7 +14490,7 @@ func (v *int64RegexpMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := regexp.Compile(s)
 	if err != nil {
@@ -14554,7 +14554,7 @@ func (v *uintRegexpMapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := regexp.Compile(s)
 	if err != nil {
@@ -14618,7 +14618,7 @@ func (v *uint8RegexpMapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := regexp.Compile(s)
 	if err != nil {
@@ -14682,7 +14682,7 @@ func (v *uint16RegexpMapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := regexp.Compile(s)
 	if err != nil {
@@ -14746,7 +14746,7 @@ func (v *uint32RegexpMapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := regexp.Compile(s)
 	if err != nil {
@@ -14810,7 +14810,7 @@ func (v *uint64RegexpMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := regexp.Compile(s)
 	if err != nil {
@@ -15067,7 +15067,7 @@ func (v *stringIPNetMapValue) Set(s string) error {
 
 	key := s
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIPNet(s)
 	if err != nil {
@@ -15131,7 +15131,7 @@ func (v *intIPNetMapValue) Set(s string) error {
 
 	key := (int)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIPNet(s)
 	if err != nil {
@@ -15195,7 +15195,7 @@ func (v *int8IPNetMapValue) Set(s string) error {
 
 	key := (int8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIPNet(s)
 	if err != nil {
@@ -15259,7 +15259,7 @@ func (v *int16IPNetMapValue) Set(s string) error {
 
 	key := (int16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIPNet(s)
 	if err != nil {
@@ -15323,7 +15323,7 @@ func (v *int32IPNetMapValue) Set(s string) error {
 
 	key := (int32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIPNet(s)
 	if err != nil {
@@ -15387,7 +15387,7 @@ func (v *int64IPNetMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIPNet(s)
 	if err != nil {
@@ -15451,7 +15451,7 @@ func (v *uintIPNetMapValue) Set(s string) error {
 
 	key := (uint)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIPNet(s)
 	if err != nil {
@@ -15515,7 +15515,7 @@ func (v *uint8IPNetMapValue) Set(s string) error {
 
 	key := (uint8)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIPNet(s)
 	if err != nil {
@@ -15579,7 +15579,7 @@ func (v *uint16IPNetMapValue) Set(s string) error {
 
 	key := (uint16)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIPNet(s)
 	if err != nil {
@@ -15643,7 +15643,7 @@ func (v *uint32IPNetMapValue) Set(s string) error {
 
 	key := (uint32)(parsedKey)
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIPNet(s)
 	if err != nil {
@@ -15707,7 +15707,7 @@ func (v *uint64IPNetMapValue) Set(s string) error {
 
 	key := parsedKey
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
 
 	parsedVal, err := parseIPNet(s)
 	if err != nil {

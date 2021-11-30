@@ -241,7 +241,7 @@ func (v *{{MapValueName $value .}}) Set(s string) error {
 	{{end}}\nn
 
 
-	s = ss[1]
+	s = strings.Join(ss[1:], ":")
  
 	{{if $value.Parser }}\nn
 	parsedVal, err := {{$value.Parser}}
